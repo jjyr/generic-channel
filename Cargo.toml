@@ -1,0 +1,12 @@
+[package]
+name = "generic-channel"
+version = "0.1.0"
+authors = ["jjy <jjyruby@gmail.com>"]
+edition = "2018"
+
+[features]
+all = ["futures", "crossbeam-channel"]
+
+[dependencies]
+crossbeam-channel = {version="0.3", optional=true}
+futures = {version="0.1", optional=true}
