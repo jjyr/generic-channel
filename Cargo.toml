@@ -3,6 +3,8 @@ name = "generic-channel"
 version = "0.1.0"
 authors = ["jjy <jjyruby@gmail.com>"]
 edition = "2018"
+repository = "https://github.com/jjyr/generic-channel"
+description = "Generic `Sender` and `Receiver` abstract between several channel implementations: std, crossbeam-channel, futures"
 
 [features]
 all = ["futures", "crossbeam-channel"]
