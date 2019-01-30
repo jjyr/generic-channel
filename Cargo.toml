@@ -10,3 +10,7 @@ all = ["futures", "crossbeam-channel"]
 [dependencies]
 crossbeam-channel = {version="0.3", optional=true}
 futures = {version="0.1", optional=true}
+
+[dev-dependencies]
+crossbeam-channel = "0.3"
+futures = "0.1"

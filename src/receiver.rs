@@ -9,7 +9,9 @@ pub trait Receiver<T> {
 
 #[derive(PartialEq, Eq, Clone, Copy, Debug)]
 pub enum TryRecvError {
+    /// receiving on an empty channel
     Empty,
+    /// receiving on an closed channel
     Disconnected,
 }
 

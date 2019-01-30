@@ -1,4 +1,4 @@
-#[cfg(feature = "crossbeam_channel")]
+#[cfg(feature = "crossbeam-channel")]
 mod crossbeam;
 #[cfg(feature = "futures")]
 mod futures;
@@ -12,7 +12,9 @@ pub trait Sender<T> {
 
 #[derive(PartialEq, Eq, Clone, Copy)]
 pub enum TrySendError<T> {
+    /// channel is full
     Full(T),
+    /// send to a closed channel
     Disconnected(T),
 }
 
