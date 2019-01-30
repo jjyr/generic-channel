@@ -4,6 +4,8 @@ mod crossbeam;
 mod futures;
 mod standard;
 
+#[cfg(feature = "futures")]
+pub use crate::sender::futures::SenderWrapper as FuturesSender;
 use std::{error, fmt};
 
 pub trait Sender<T> {

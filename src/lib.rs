@@ -41,6 +41,8 @@ mod receiver;
 mod sender;
 
 pub use crate::receiver::{Receiver, TryRecvError};
+#[cfg(feature = "futures")]
+pub use crate::sender::FuturesSender;
 pub use crate::sender::{Sender, TrySendError};
 
 #[cfg(test)]
