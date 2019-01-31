@@ -4,12 +4,10 @@ mod crossbeam;
 mod futures;
 mod standard;
 
-#[cfg(feature = "futures")]
-pub use crate::sender::futures::SenderWrapper as FuturesSender;
 use std::{error, fmt};
 
 pub trait Sender<T> {
-    fn try_send(&self, t: T) -> Result<(), TrySendError<T>>;
+    fn try_send(&mut self, t: T) -> Result<(), TrySendError<T>>;
 }
 
 #[derive(PartialEq, Eq, Clone, Copy)]
