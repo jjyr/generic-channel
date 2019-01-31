@@ -19,7 +19,7 @@
 //! use generic_channel::{Sender, TrySendError};
 //!
 //! // this method do not care about sender type.
-//! fn event_producer<S: Sender<i32>>(sender: S) -> Result<(), TrySendError<i32>> {
+//! fn event_producer<S: Sender<i32>>(mut sender: S) -> Result<(), TrySendError<i32>> {
 //!     for i in 1..10 {
 //!         sender.try_send(i)?
 //!     }
@@ -50,7 +50,7 @@ mod tests {
     #[test]
     fn sender_works() {
         let (sender, receiver) = channel();
-        let sender: Box<dyn Sender<u8>> = Box::new(sender);
+        let mut sender: Box<dyn Sender<u8>> = Box::new(sender);
         sender.try_send(1).expect("send");
         assert_eq!(receiver.recv().expect("recv"), 1u8);
         drop(receiver);
